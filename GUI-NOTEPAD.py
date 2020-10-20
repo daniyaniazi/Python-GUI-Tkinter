@@ -8,7 +8,6 @@ root.config(bg='')
 
 var_filename=StringVar()
 def openfiles():
-
     op=filedialog.askopenfile(title='select file',filetypes=(('text file','.txt'),))
     text_area.insert(END,str(''))
     if op!=None:
@@ -20,8 +19,6 @@ def openfiles():
             text_area.insert(END,str(i))
         op.close()
 
-
-
 def savefiles():
     if var_filename.get()=='':
         saveasfile()
@@ -31,8 +28,6 @@ def savefiles():
         op.close()
         messagebox.showinfo('Save As', 'File has been saved')
 
-
-
 def saveasfile():
     op = filedialog.asksaveasfile(title='Save as', filetypes=(('text file', '.txt'),),defaultextension='.txt')
     if op != None:
@@ -40,8 +35,6 @@ def saveasfile():
         op.write(text_area.get('1.0',END))
         op.close()
         messagebox.showinfo('Save As','File has been saved')
-
-
 
 btn1=Button(root,text='Open',command=openfiles).place(x=10,y=0)
 btn2=Button(root,text='Save',command=savefiles).place(x=50,y=0)
